@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spendpilot-dev
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/<your-org>/spendpilot-helm.git
+      targetRevision: main
+      path: charts/spendpilot
+      helm:
+        valueFiles:
+          - $values/environments/dev/values/spendpilot-values.yaml
+    - repoURL: https://github.com/<your-org>/spendpilot-gitops.git
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spend-control
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

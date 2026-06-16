@@ -1,0 +1,31 @@
+env:
+  appEnv: development
+  backendCorsOrigins: https://dev.example.z01.azurefd.net
+
+auth:
+  mode: entra
+  authority: https://login.microsoftonline.com/common
+
+frontend:
+  image:
+    tag: dev-latest
+  replicaCount: 1
+
+identityService:
+  image:
+    tag: dev-latest
+  replicaCount: 1
+
+financeService:
+  image:
+    tag: dev-latest
+  replicaCount: 1
+
+documentsService:
+  image:
+    tag: dev-latest
+  replicaCount: 1
+
+migrationJob:
+  image:
+    tag: dev-latest

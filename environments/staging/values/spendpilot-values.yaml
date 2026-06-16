@@ -1,0 +1,31 @@
+env:
+  appEnv: staging
+  backendCorsOrigins: https://staging.example.z01.azurefd.net
+
+auth:
+  mode: entra
+  authority: https://login.microsoftonline.com/common
+
+frontend:
+  image:
+    tag: staging-candidate
+  replicaCount: 2
+
+identityService:
+  image:
+    tag: staging-candidate
+  replicaCount: 2
+
+financeService:
+  image:
+    tag: staging-candidate
+  replicaCount: 2
+
+documentsService:
+  image:
+    tag: staging-candidate
+  replicaCount: 2
+
+migrationJob:
+  image:
+    tag: staging-candidate

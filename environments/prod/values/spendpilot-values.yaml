@@ -1,0 +1,31 @@
+env:
+  appEnv: production
+  backendCorsOrigins: https://example.z01.azurefd.net
+
+auth:
+  mode: entra
+  authority: https://login.microsoftonline.com/common
+
+frontend:
+  image:
+    tag: prod-release
+  replicaCount: 2
+
+identityService:
+  image:
+    tag: prod-release
+  replicaCount: 2
+
+financeService:
+  image:
+    tag: prod-release
+  replicaCount: 2
+
+documentsService:
+  image:
+    tag: prod-release
+  replicaCount: 2
+
+migrationJob:
+  image:
+    tag: prod-release
