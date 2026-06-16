@@ -12,4 +12,4 @@ Current execution status:
 
 - one `Application` manifest per environment
 - environment-local GitOps values files for SpendPilot
-- placeholder remote Git repo URLs pending future repo creation
+- remote Git repo URLs now point at the `SpendPilot` GitHub organization

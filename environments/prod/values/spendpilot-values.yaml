@@ -1,31 +1,100 @@
+namespace:
+  create: false
+  name: spend-control
+
+gateway:
+  enabled: true
+  className: kgateway
+  name: spend-control-gateway
+  listener:
+    port: 80
+    protocol: HTTP
+  tls:
+    enabled: false
+    port: 443
+    protocol: HTTPS
+    mode: Terminate
+    certificateSecretName: spend-control-gateway-origin-tls
+
+serviceAccount:
+  create: false
+  name: spend-control-workload
+
+config:
+  create: false
+  existingConfigMapName: spend-control-config
+
+imagePullSecrets: []
+
+rollout:
+  revision: ""
+
 env:
   appEnv: production
   backendCorsOrigins: https://example.z01.azurefd.net
+  financeDefaultCurrency: INR
 
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
+  frontendClientId: ""
+  backendClientId: ""
+  backendAudience: ""
+  apiScope: ""
+  allowedTenantIds: ""
+  platformAdminEmails: ""
+
+azure:
+  tenantId: ""
+  managedIdentityClientId: ""
+  aiFoundryEndpoint: ""
+  aiProjectEndpoint: ""
+  aiModelDeployment: ""
+  documentIntelligenceEndpoint: ""
+  storageAccountUrl: ""
+  storageContainerName: expense-documents
 
 frontend:
   image:
+    repository: spendpilotacr.azurecr.io/spend-control-frontend
     tag: prod-release
+    pullPolicy: IfNotPresent
   replicaCount: 2
+  nextPublicApiBaseUrl: /api
 
 identityService:
   image:
+    repository: spendpilotacr.azurecr.io/spend-control-backend
     tag: prod-release
+    pullPolicy: IfNotPresent
+  appModule: app.service_apps.identity:app
   replicaCount: 2
 
 financeService:
   image:
+    repository: spendpilotacr.azurecr.io/spend-control-backend
     tag: prod-release
+    pullPolicy: IfNotPresent
+  appModule: app.service_apps.finance:app
   replicaCount: 2
 
 documentsService:
   image:
+    repository: spendpilotacr.azurecr.io/spend-control-backend
     tag: prod-release
+    pullPolicy: IfNotPresent
+  appModule: app.service_apps.documents:app
   replicaCount: 2
 
 migrationJob:
+  enabled: true
   image:
+    repository: spendpilotacr.azurecr.io/spend-control-backend
     tag: prod-release
+    pullPolicy: IfNotPresent
+
+secrets:
+  create: false
+  existingSecretName: spend-control-secrets
+  databaseUrl: ""
+  devAuthSecret: ""

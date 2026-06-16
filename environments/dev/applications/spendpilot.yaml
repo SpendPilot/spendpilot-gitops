@@ -6,13 +6,13 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/<your-org>/spendpilot-helm.git
+    - repoURL: https://github.com/SpendPilot/spendpilot-helm.git
       targetRevision: main
       path: charts/spendpilot
       helm:
         valueFiles:
           - $values/environments/dev/values/spendpilot-values.yaml
-    - repoURL: https://github.com/<your-org>/spendpilot-gitops.git
+    - repoURL: https://github.com/SpendPilot/spendpilot-gitops.git
       targetRevision: main
       ref: values
   destination:
