@@ -1,7 +1,6 @@
 namespace:
   create: false
   name: spend-control
-
 gateway:
   enabled: true
   className: kgateway
@@ -15,25 +14,19 @@ gateway:
     protocol: HTTPS
     mode: Terminate
     certificateSecretName: spend-control-gateway-origin-tls
-
 serviceAccount:
   create: false
   name: spend-control-workload
-
 config:
   create: false
   existingConfigMapName: spend-control-config
-
 imagePullSecrets: []
-
 rollout:
   revision: ""
-
 env:
   appEnv: production
   backendCorsOrigins: https://example.z01.azurefd.net
   financeDefaultCurrency: INR
-
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
@@ -43,7 +36,6 @@ auth:
   apiScope: ""
   allowedTenantIds: ""
   platformAdminEmails: ""
-
 azure:
   tenantId: ""
   managedIdentityClientId: ""
@@ -53,7 +45,6 @@ azure:
   documentIntelligenceEndpoint: ""
   storageAccountUrl: ""
   storageContainerName: expense-documents
-
 frontend:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-frontend
@@ -61,35 +52,30 @@ frontend:
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
-
 identityService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-identity
     tag: prod-release
     pullPolicy: IfNotPresent
   replicaCount: 2
-
 financeService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-finance
     tag: prod-release
     pullPolicy: IfNotPresent
   replicaCount: 2
-
 documentsService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-documents
-    tag: prod-release
+    tag: sha-eee2b68c6bee89996c6b1d4b1443da3f9197cee4
     pullPolicy: IfNotPresent
   replicaCount: 2
-
 migrationJob:
   enabled: true
   image:
     repository: spendpilotacr.azurecr.io/spend-control-identity
     tag: prod-release
     pullPolicy: IfNotPresent
-
 secrets:
   create: false
   existingSecretName: spend-control-secrets
