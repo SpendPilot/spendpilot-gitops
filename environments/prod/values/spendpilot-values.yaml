@@ -27,24 +27,22 @@ env:
   appEnv: production
   backendCorsOrigins: https://example.z01.azurefd.net
   financeDefaultCurrency: INR
-auth:
-  mode: entra
-  authority: https://login.microsoftonline.com/common
-  frontendClientId: ""
-  backendClientId: ""
-  backendAudience: ""
-  apiScope: ""
-  allowedTenantIds: ""
-  platformAdminEmails: ""
 azure:
-  tenantId: ""
-  managedIdentityClientId: ""
-  aiFoundryEndpoint: ""
+  tenantId: "920e9322-340c-4fbc-bf09-dc8fd6636182"
+  managedIdentityClientId: "4c6c1ff6-daeb-46fb-b47a-2db71ca784e7"
+  aiFoundryEndpoint: "https://spendpilotprodai.cognitiveservices.azure.com/"
   aiProjectEndpoint: ""
-  aiModelDeployment: ""
-  documentIntelligenceEndpoint: ""
-  storageAccountUrl: ""
+  aiModelDeployment: "gpt-4-1-mini"
+  documentIntelligenceEndpoint: "https://spendpilotproddoc.cognitiveservices.azure.com/"
+  storageAccountUrl: "https://spendpilotprodst.blob.core.windows.net/"
   storageContainerName: expense-documents
+keyVault:
+  enabled: true
+  name: spendpilot-prod-kv
+  secretProviderClassName: spend-control-secrets-provider
+  mountPath: /mnt/secrets-store
+  databaseUrlSecretName: spend-control-database-url
+  devAuthSecretSecretName: spend-control-dev-auth-secret
 frontend:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-frontend
@@ -79,5 +77,13 @@ migrationJob:
 secrets:
   create: false
   existingSecretName: spend-control-secrets
-  databaseUrl: ""
-  devAuthSecret: ""
+
+auth:
+  mode: entra
+  authority: https://login.microsoftonline.com/common
+  frontendClientId: "2edb3009-55d8-4289-969e-2d2b0e2de71c"
+  backendClientId: "c40bf7a7-e9d5-42c1-be1e-6461e5302996"
+  backendAudience: "api://c40bf7a7-e9d5-42c1-be1e-6461e5302996"
+  apiScope: "api://c40bf7a7-e9d5-42c1-be1e-6461e5302996/access_as_user"
+  allowedTenantIds: ""
+  platformAdminEmails: ""
