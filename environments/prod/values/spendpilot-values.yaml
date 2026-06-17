@@ -64,32 +64,29 @@ frontend:
 
 identityService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-backend
+    repository: spendpilotacr.azurecr.io/spend-control-identity
     tag: prod-release
     pullPolicy: IfNotPresent
-  appModule: app.service_apps.identity:app
   replicaCount: 2
 
 financeService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-backend
+    repository: spendpilotacr.azurecr.io/spend-control-finance
     tag: prod-release
     pullPolicy: IfNotPresent
-  appModule: app.service_apps.finance:app
   replicaCount: 2
 
 documentsService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-backend
+    repository: spendpilotacr.azurecr.io/spend-control-documents
     tag: prod-release
     pullPolicy: IfNotPresent
-  appModule: app.service_apps.documents:app
   replicaCount: 2
 
 migrationJob:
   enabled: true
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-backend
+    repository: spendpilotacr.azurecr.io/spend-control-identity
     tag: prod-release
     pullPolicy: IfNotPresent
 
