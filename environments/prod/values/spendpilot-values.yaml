@@ -48,7 +48,7 @@ azure:
 frontend:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-frontend
-    tag: sha-907ec1eb4d122b70d80d8544a6483c5ae909e1f1
+    tag: 07a44af
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
