@@ -55,7 +55,7 @@ frontend:
 identityService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-identity
-    tag: prod-release
+    tag: sha-eee2b68c6bee89996c6b1d4b1443da3f9197cee4
     pullPolicy: IfNotPresent
   replicaCount: 2
 financeService:
@@ -74,7 +74,7 @@ migrationJob:
   enabled: true
   image:
     repository: spendpilotacr.azurecr.io/spend-control-identity
-    tag: prod-release
+    tag: sha-eee2b68c6bee89996c6b1d4b1443da3f9197cee4
     pullPolicy: IfNotPresent
 secrets:
   create: false
