@@ -65,7 +65,7 @@ financeService:
 documentsService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-documents
-    tag: "1a78325"
+    tag: "dbde2b3"
     pullPolicy: IfNotPresent
   replicaCount: 2
 migrationJob:
