@@ -46,7 +46,7 @@ keyVault:
 frontend:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-frontend
-    tag: 07a44af
+    tag: 07158f9
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
@@ -77,7 +77,6 @@ migrationJob:
 secrets:
   create: false
   existingSecretName: spend-control-secrets
-
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
