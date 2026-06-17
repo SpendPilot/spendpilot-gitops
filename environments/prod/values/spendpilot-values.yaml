@@ -67,7 +67,7 @@ financeService:
 documentsService:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-documents
-    tag: sha-eee2b68c6bee89996c6b1d4b1443da3f9197cee4
+    tag: "5212960"
     pullPolicy: IfNotPresent
   replicaCount: 2
 migrationJob:
