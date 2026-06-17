@@ -46,7 +46,7 @@ keyVault:
 frontend:
   image:
     repository: spendpilotacr.azurecr.io/spend-control-frontend
-    tag: 07158f9
+    tag: 87a5ee2
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
