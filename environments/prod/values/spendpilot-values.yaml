@@ -25,10 +25,10 @@ rollout:
   revision: ""
 env:
   appEnv: production
-  backendCorsOrigins: https://example.z01.azurefd.net
+  backendCorsOrigins: https://fin.nexaflow.site,https://myfinagent.online,https://www.myfinagent.online
   financeDefaultCurrency: INR
 azure:
-  tenantId: "920e9322-340c-4fbc-bf09-dc8fd6636182"
+  tenantId: "23009888-f985-4438-a6a8-32650f036be3"
   managedIdentityClientId: "4c6c1ff6-daeb-46fb-b47a-2db71ca784e7"
   aiFoundryEndpoint: "https://spendpilotprodai.cognitiveservices.azure.com/"
   aiProjectEndpoint: ""
@@ -45,33 +45,33 @@ keyVault:
   devAuthSecretSecretName: spend-control-dev-auth-secret
 frontend:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-frontend
+    repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: eb5c877
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
 identityService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-identity
+    repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: "dbde2b3"
     pullPolicy: IfNotPresent
   replicaCount: 2
 financeService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-finance
+    repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: "dbde2b3"
     pullPolicy: IfNotPresent
   replicaCount: 2
 documentsService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-documents
+    repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: "dbde2b3"
     pullPolicy: IfNotPresent
   replicaCount: 2
 migrationJob:
   enabled: true
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-identity
+    repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: "dbde2b3"
     pullPolicy: IfNotPresent
 secrets:
@@ -82,7 +82,7 @@ auth:
   authority: https://login.microsoftonline.com/common
   frontendClientId: "2edb3009-55d8-4289-969e-2d2b0e2de71c"
   backendClientId: "c40bf7a7-e9d5-42c1-be1e-6461e5302996"
-  backendAudience: "api://c40bf7a7-e9d5-42c1-be1e-6461e5302996"
-  apiScope: "api://c40bf7a7-e9d5-42c1-be1e-6461e5302996/access_as_user"
+  backendAudience: "api://spendpilot-prod-backend-api"
+  apiScope: "api://spendpilot-prod-backend-api/access_as_user"
   allowedTenantIds: ""
   platformAdminEmails: ""

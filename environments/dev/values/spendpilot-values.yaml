@@ -8,29 +8,29 @@ auth:
 
 frontend:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-frontend
+    repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: dev-latest
   replicaCount: 1
 
 identityService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-identity
+    repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: dev-latest
   replicaCount: 1
 
 financeService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-finance
+    repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: dev-latest
   replicaCount: 1
 
 documentsService:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-documents
+    repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: dev-latest
   replicaCount: 1
 
 migrationJob:
   image:
-    repository: spendpilotacr.azurecr.io/spend-control-identity
+    repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: dev-latest
