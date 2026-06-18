@@ -59,7 +59,7 @@ identityService:
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
-    tag: "d41999c"
+    tag: "313b826"
     pullPolicy: IfNotPresent
   replicaCount: 2
 documentsService:
