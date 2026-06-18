@@ -29,16 +29,16 @@ env:
   financeDefaultCurrency: INR
 azure:
   tenantId: "23009888-f985-4438-a6a8-32650f036be3"
-  managedIdentityClientId: "4c6c1ff6-daeb-46fb-b47a-2db71ca784e7"
-  aiFoundryEndpoint: "https://spendpilotprodai.cognitiveservices.azure.com/"
+  managedIdentityClientId: "c8ec5bbe-a9ef-4593-ac8f-4e8269fd327c"
+  aiFoundryEndpoint: "https://spendpilotprodai2300.cognitiveservices.azure.com/"
   aiProjectEndpoint: ""
   aiModelDeployment: "gpt-4-1-mini"
-  documentIntelligenceEndpoint: "https://spendpilotproddoc.cognitiveservices.azure.com/"
-  storageAccountUrl: "https://spendpilotprodst.blob.core.windows.net/"
+  documentIntelligenceEndpoint: "https://spendpilotproddoc2300.cognitiveservices.azure.com/"
+  storageAccountUrl: "https://sp2300proddocs.blob.core.windows.net/"
   storageContainerName: expense-documents
 keyVault:
   enabled: true
-  name: spendpilot-prod-kv
+  name: spendpilot-prod-kv-2300
   secretProviderClassName: spend-control-secrets-provider
   mountPath: /mnt/secrets-store
   databaseUrlSecretName: spend-control-database-url
@@ -80,9 +80,9 @@ secrets:
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
-  frontendClientId: "2edb3009-55d8-4289-969e-2d2b0e2de71c"
-  backendClientId: "c40bf7a7-e9d5-42c1-be1e-6461e5302996"
-  backendAudience: "api://spendpilot-prod-backend-api"
-  apiScope: "api://spendpilot-prod-backend-api/access_as_user"
+  frontendClientId: "60a50899-f5cb-4a91-bce6-3e5df72d8b79"
+  backendClientId: "4863701b-0a8d-4645-922f-1e8adebff2b2"
+  backendAudience: "api://spendpilot-prod-backend-api-2300"
+  apiScope: "api://spendpilot-prod-backend-api-2300/access_as_user"
   allowedTenantIds: ""
   platformAdminEmails: ""
