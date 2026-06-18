@@ -53,7 +53,7 @@ frontend:
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: "dbde2b3"
+    tag: "d41999c"
     pullPolicy: IfNotPresent
   replicaCount: 2
 financeService:
@@ -72,7 +72,7 @@ migrationJob:
   enabled: true
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: "dbde2b3"
+    tag: "d41999c"
     pullPolicy: IfNotPresent
 secrets:
   create: false
