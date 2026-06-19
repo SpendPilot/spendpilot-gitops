@@ -1,39 +1,33 @@
 env:
   appEnv: staging
   backendCorsOrigins: https://staging.example.z01.azurefd.net
-
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
-
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
-    tag: staging-candidate
-    digest: ""
+    tag: 8943dc2
+    digest: "sha256:6815b3bc7dbbddc00507d68b663a68b8e0968e85d4f31627841a7861ef60c3c9"
   replicaCount: 2
-
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: staging-candidate
     digest: ""
   replicaCount: 2
-
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: staging-candidate
     digest: ""
   replicaCount: 2
-
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: staging-candidate
     digest: ""
   replicaCount: 2
-
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
