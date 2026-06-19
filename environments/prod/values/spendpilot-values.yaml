@@ -54,8 +54,8 @@ frontend:
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: "1e27197"
-    digest: ""
+    tag: "v1.0.0"
+    digest: "sha256:150b2083b0e09ce745c7ab66f4f862200f650c16454fa1b0b91cfa44af6e09cb"
     pullPolicy: IfNotPresent
   replicaCount: 2
 financeService:
@@ -76,8 +76,8 @@ migrationJob:
   enabled: true
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: "1e27197"
-    digest: ""
+    tag: "v1.0.0"
+    digest: "sha256:150b2083b0e09ce745c7ab66f4f862200f650c16454fa1b0b91cfa44af6e09cb"
     pullPolicy: IfNotPresent
 secrets:
   create: false
