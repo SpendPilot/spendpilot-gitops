@@ -46,8 +46,8 @@ keyVault:
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
-    tag: d176fb0
-    digest: ""
+    tag: 8943dc2
+    digest: "sha256:6815b3bc7dbbddc00507d68b663a68b8e0968e85d4f31627841a7861ef60c3c9"
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
