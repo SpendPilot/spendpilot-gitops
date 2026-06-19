@@ -1,41 +1,35 @@
 env:
   appEnv: development
   backendCorsOrigins: https://dev.example.z01.azurefd.net
-
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
-
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: dev-latest
     digest: ""
   replicaCount: 1
-
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: dev-latest
-    digest: ""
+    tag: 7faf974
+    digest: "sha256:57068e0784b3b0fd7a74220cddb0b411c4dbff2a02100d3c0750af9b9d6984ef"
   replicaCount: 1
-
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: dev-latest
     digest: ""
   replicaCount: 1
-
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: dev-latest
     digest: ""
   replicaCount: 1
-
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: dev-latest
-    digest: ""
+    tag: 7faf974
+    digest: "sha256:57068e0784b3b0fd7a74220cddb0b411c4dbff2a02100d3c0750af9b9d6984ef"
