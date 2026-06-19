@@ -47,6 +47,7 @@ frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: d176fb0
+    digest: ""
     pullPolicy: IfNotPresent
   replicaCount: 2
   nextPublicApiBaseUrl: /api
@@ -54,18 +55,21 @@ identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: "1e27197"
+    digest: ""
     pullPolicy: IfNotPresent
   replicaCount: 2
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: "a3b497b"
+    digest: ""
     pullPolicy: IfNotPresent
   replicaCount: 2
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: "a3b497b"
+    digest: ""
     pullPolicy: IfNotPresent
   replicaCount: 2
 migrationJob:
@@ -73,6 +77,7 @@ migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: "1e27197"
+    digest: ""
     pullPolicy: IfNotPresent
 secrets:
   create: false

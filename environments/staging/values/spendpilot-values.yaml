@@ -10,27 +10,32 @@ frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: staging-candidate
+    digest: ""
   replicaCount: 2
 
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: staging-candidate
+    digest: ""
   replicaCount: 2
 
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: staging-candidate
+    digest: ""
   replicaCount: 2
 
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: staging-candidate
+    digest: ""
   replicaCount: 2
 
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: staging-candidate
+    digest: ""
