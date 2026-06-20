@@ -5,6 +5,8 @@ gateway:
   enabled: true
   className: kgateway
   name: spend-control-gateway
+  hostnames:
+    - costpilot.online
   listener:
     port: 80
     protocol: HTTP
@@ -25,7 +27,7 @@ rollout:
   revision: ""
 env:
   appEnv: production
-  backendCorsOrigins: https://fin.nexaflow.site,https://myfinagent.online,https://www.myfinagent.online
+  backendCorsOrigins: https://fin.nexaflow.site,https://costpilot.online,https://myfinagent.online,https://www.myfinagent.online
   financeDefaultCurrency: INR
 azure:
   tenantId: "23009888-f985-4438-a6a8-32650f036be3"
@@ -50,6 +52,18 @@ frontend:
     digest: "sha256:6815b3bc7dbbddc00507d68b663a68b8e0968e85d4f31627841a7861ef60c3c9"
     pullPolicy: IfNotPresent
   replicaCount: 2
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 70
   nextPublicApiBaseUrl: /api
 identityService:
   image:
@@ -58,6 +72,13 @@ identityService:
     digest: "sha256:150b2083b0e09ce745c7ab66f4f862200f650c16454fa1b0b91cfa44af6e09cb"
     pullPolicy: IfNotPresent
   replicaCount: 2
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
@@ -65,6 +86,13 @@ financeService:
     digest: "sha256:ace921d17e7d9262f905649ef07f5e14115868dd526201b96d524c39829fc126"
     pullPolicy: IfNotPresent
   replicaCount: 2
+  resources:
+    requests:
+      cpu: 100m
+      memory: 192Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
@@ -72,6 +100,13 @@ documentsService:
     digest: "sha256:2aa4f42e66ed1e1f420b69f5abd3f1ea6dc46abb61f2211e3d9d09722608fde5"
     pullPolicy: IfNotPresent
   replicaCount: 2
+  resources:
+    requests:
+      cpu: 100m
+      memory: 192Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 migrationJob:
   enabled: true
   image:

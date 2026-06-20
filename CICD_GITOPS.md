@@ -6,12 +6,18 @@
 - Dev uses automatic short SHA tags such as `sha-a1b2c3d` or the current repo short-sha style used by the workflow.
 - Dev values store both the readable tag and the immutable digest.
 - Dev deployment should use the digest as the deployment source of truth when present.
+- Dev values should represent the dev hostname contract `dev.costpilot.online`.
+- After the workflow updates `environments/dev/values/spendpilot-values.yaml`, Argo CD dev auto-sync should reconcile the change.
 
 ## Staging
 
 - Staging promotion is manual.
 - Staging copies the exact image tag and digest from `dev`.
 - Staging does not rebuild the image.
+- Staging values should represent the staging hostname contract `stage.costpilot.online`.
+- Staging promotion workflows require typed confirmation `promote-to-staging`.
+- Staging promotion should update only `environments/staging/values/spendpilot-values.yaml`.
+- After the GitOps PR is merged, Argo CD staging auto-sync should reconcile the change.
 
 ## Production
 
@@ -26,6 +32,9 @@
 - The semantic version is only a human-readable release label.
 - The digest is the actual immutable artifact that is deployed.
 - The production workflow must never rebuild the image.
+- Prod values should represent the production hostname contract `costpilot.online`.
+- Production promotion should update only `environments/prod/values/spendpilot-values.yaml`.
+- After the GitOps PR is merged, Argo CD prod auto-sync should reconcile the change.
 
 ## Deployment Behavior
 
@@ -36,3 +45,14 @@
 
 - Roll back by reverting the prod values file commit or restoring a previous prod tag and digest pair.
 - Do not rely on `latest`.
+
+## Required Workflow Credentials
+
+- Azure registry-tagging workflows expect these GitHub variables or fallback secrets:
+  - `ACR_NAME`
+  - `ACR_LOGIN_SERVER`
+  - `AZURE_CLIENT_ID`
+  - `AZURE_TENANT_ID`
+  - `AZURE_SUBSCRIPTION_ID`
+- Cross-repo GitOps updates and PR creation expect:
+  - `GITOPS_REPO_TOKEN`

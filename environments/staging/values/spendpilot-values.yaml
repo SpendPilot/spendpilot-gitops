@@ -1,6 +1,9 @@
+gateway:
+  hostnames:
+    - stage.costpilot.online
 env:
   appEnv: staging
-  backendCorsOrigins: https://staging.example.z01.azurefd.net
+  backendCorsOrigins: https://stage.costpilot.online
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
@@ -9,25 +12,53 @@ frontend:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: 8943dc2
     digest: "sha256:6815b3bc7dbbddc00507d68b663a68b8e0968e85d4f31627841a7861ef60c3c9"
-  replicaCount: 2
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 75m
+      memory: 128Mi
+    limits:
+      cpu: 350m
+      memory: 384Mi
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: 961704e
     digest: "sha256:150b2083b0e09ce745c7ab66f4f862200f650c16454fa1b0b91cfa44af6e09cb"
-  replicaCount: 2
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 160Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: 961704e
     digest: "sha256:ace921d17e7d9262f905649ef07f5e14115868dd526201b96d524c39829fc126"
-  replicaCount: 2
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 224Mi
+    limits:
+      cpu: 750m
+      memory: 768Mi
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: 961704e
     digest: "sha256:2aa4f42e66ed1e1f420b69f5abd3f1ea6dc46abb61f2211e3d9d09722608fde5"
-  replicaCount: 2
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 125m
+      memory: 224Mi
+    limits:
+      cpu: 750m
+      memory: 768Mi
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
