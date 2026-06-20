@@ -66,8 +66,8 @@ identityService:
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
-    tag: 961704e
-    digest: "sha256:ace921d17e7d9262f905649ef07f5e14115868dd526201b96d524c39829fc126"
+    tag: 3cd6876
+    digest: "sha256:a5998a26a5654e3459f2868c483c8435bcfa7bb68f9b673035b52401bacba084"
   replicaCount: 2
   resources:
     requests:
