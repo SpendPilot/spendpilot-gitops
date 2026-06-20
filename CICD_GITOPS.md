@@ -3,6 +3,7 @@
 ## Dev
 
 - Pushes to `main` build the image once.
+- Dev image build workflows now also run a non-blocking Trivy image scan after the image is pushed.
 - Dev uses automatic short SHA tags such as `sha-a1b2c3d` or the current repo short-sha style used by the workflow.
 - Dev values store both the readable tag and the immutable digest.
 - Dev deployment should use the digest as the deployment source of truth when present.
