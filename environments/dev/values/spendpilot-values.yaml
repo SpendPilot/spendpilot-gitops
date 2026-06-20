@@ -1,33 +1,89 @@
+gateway:
+  hostnames:
+    - dev.costpilot.online
 env:
   appEnv: development
-  backendCorsOrigins: https://dev.example.z01.azurefd.net
+  backendCorsOrigins: https://dev.costpilot.online
+azure:
+  tenantId: "23009888-f985-4438-a6a8-32650f036be3"
+  managedIdentityClientId: "14c7c3af-b1e7-43c2-9bfa-fcc661d8cbe6"
+  aiFoundryEndpoint: "https://spendpilotnonprodai.cognitiveservices.azure.com/"
+  aiProjectEndpoint: ""
+  aiModelDeployment: "gpt-4-1-mini"
+  documentIntelligenceEndpoint: "https://spendpilotnonproddoc.cognitiveservices.azure.com/"
+  storageAccountUrl: "https://spendpilotdevst.blob.core.windows.net/"
+  storageContainerName: expense-documents
+keyVault:
+  enabled: true
+  name: spendpilot-dev-kv
+  secretProviderClassName: spend-control-secrets-provider
+  mountPath: /mnt/secrets-store
+  databaseUrlSecretName: spend-control-database-url
+  devAuthSecretSecretName: spend-control-dev-auth-secret
+secrets:
+  create: false
+  existingSecretName: spend-control-secrets
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
+  frontendClientId: "a86ec89a-2a6e-4ea2-896f-06490bbddbbe"
+  backendClientId: "4f595eeb-0b34-46a9-82c7-f5912b31d0a2"
+  backendAudience: "api://spendpilot-dev-api"
+  apiScope: "api://spendpilot-dev-api/access_as_user"
+  allowedTenantIds: ""
+  platformAdminEmails: "lijazsalim@gmail.com"
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
     tag: f8380c8
     digest: "sha256:18ea671c19f86923c417078c4455a6424dac1d1e69d4a60c3a29289759fcfcd5"
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 96Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
     tag: 961704e
     digest: "sha256:150b2083b0e09ce745c7ab66f4f862200f650c16454fa1b0b91cfa44af6e09cb"
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 75m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 384Mi
 financeService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-finance
     tag: 961704e
     digest: "sha256:ace921d17e7d9262f905649ef07f5e14115868dd526201b96d524c39829fc126"
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 192Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
     tag: 961704e
     digest: "sha256:2aa4f42e66ed1e1f420b69f5abd3f1ea6dc46abb61f2211e3d9d09722608fde5"
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 192Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
