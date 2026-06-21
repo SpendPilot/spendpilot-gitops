@@ -57,8 +57,8 @@ frontend:
 identityService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: 3cd6876
-    digest: "sha256:7835083cb3e1bd9ee3629d1c2d157e34783c02be6faf5979993d5855344700df"
+    tag: 12516a4
+    digest: "sha256:4b9e7574e0be80e7787c4e0144c54ff705c8b555012316740cd5c0dd716076ae"
   replicaCount: 2
   resources:
     requests:
@@ -96,5 +96,5 @@ documentsService:
 migrationJob:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-identity
-    tag: 3cd6876
-    digest: "sha256:7835083cb3e1bd9ee3629d1c2d157e34783c02be6faf5979993d5855344700df"
+    tag: 12516a4
+    digest: "sha256:4b9e7574e0be80e7787c4e0144c54ff705c8b555012316740cd5c0dd716076ae"
