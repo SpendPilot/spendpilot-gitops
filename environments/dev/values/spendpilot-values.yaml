@@ -39,8 +39,8 @@ auth:
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend
-    tag: b377ed7
-    digest: "sha256:9c5c37b1408957a98ea381f0dde2699819c7d33fa333fbaea2d5788f3a8b7b18"
+    tag: a2bcb1d
+    digest: "sha256:f68abfd2922f3fda2ee7f0e1e1a3cc018c46bc3ebd0e849970cb46a2a2a47b22"
   replicaCount: 2
   resources:
     requests:
