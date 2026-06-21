@@ -83,8 +83,8 @@ financeService:
 documentsService:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-documents
-    tag: 3cd6876
-    digest: "sha256:103fae9c4f27a12ba3d68a6b50ff7361726cc42c0388e3f4409fa4a3c4ca9c61"
+    tag: 12516a4
+    digest: "sha256:4de1c95f297a5d5eeff62ae40c05053341d9605d502f20bba5d7283e9f243861"
   replicaCount: 2
   resources:
     requests:
