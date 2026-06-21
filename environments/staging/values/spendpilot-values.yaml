@@ -7,6 +7,10 @@ env:
 auth:
   mode: entra
   authority: https://login.microsoftonline.com/common
+notifications:
+  enabled: true
+  serviceBusFullyQualifiedNamespace: "spendpilot-staging-sb.servicebus.windows.net"
+  serviceBusQueueName: email-requests
 frontend:
   image:
     repository: spendpilotglobalacr.azurecr.io/spend-control-frontend

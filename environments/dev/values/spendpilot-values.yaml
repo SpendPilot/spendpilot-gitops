@@ -13,6 +13,10 @@ azure:
   documentIntelligenceEndpoint: "https://spendpilotnonproddoc.cognitiveservices.azure.com/"
   storageAccountUrl: "https://spendpilotdevst.blob.core.windows.net/"
   storageContainerName: expense-documents
+notifications:
+  enabled: true
+  serviceBusFullyQualifiedNamespace: "spendpilot-dev-sb.servicebus.windows.net"
+  serviceBusQueueName: email-requests
 keyVault:
   enabled: true
   name: spendpilot-dev-kv

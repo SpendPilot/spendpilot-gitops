@@ -8,6 +8,10 @@
 - Dev values store both the readable tag and the immutable digest.
 - Dev deployment should use the digest as the deployment source of truth when present.
 - Dev values should represent the dev hostname contract `dev.costpilot.online`.
+- Dev values now also carry the async email queue settings consumed by the AKS workloads:
+  - `notifications.enabled`
+  - `notifications.serviceBusFullyQualifiedNamespace`
+  - `notifications.serviceBusQueueName`
 - After the workflow updates `environments/dev/values/spendpilot-values.yaml`, Argo CD dev auto-sync should reconcile the change.
 
 ## Staging
@@ -41,6 +45,12 @@
 
 - Helm should render `repository@sha256:...` when a digest is present.
 - The tag remains in values for readability, auditability, and release tracking.
+- Async email application config is still part of the GitOps-managed AKS workload config.
+- The Azure Function that drains the queue is not part of the GitOps repo and is deployed from `spendpilot-services/.github/workflows/email-function-deploy.yml`.
+- Deterministic Function App names are expected to be:
+  - `spendpilot-dev-email-func`
+  - `spendpilot-staging-email-func`
+  - `spendpilot-prod-email-func`
 
 ## Rollback
 
