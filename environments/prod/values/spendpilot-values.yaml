@@ -5,8 +5,14 @@ gateway:
   enabled: true
   className: kgateway
   name: spend-control-gateway
+  infrastructureParametersRef:
+    name: spendpilot-prod-gateway-params
+    group: gateway.kgateway.dev
+    kind: GatewayParameters
   hostnames:
     - costpilot.online
+  healthProbeRoute:
+    enabled: true
   listener:
     port: 80
     protocol: HTTP
